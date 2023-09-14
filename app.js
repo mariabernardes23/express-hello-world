@@ -40,7 +40,7 @@ const series = [ { id: 1, name: 'Atypical' },
                  { id: 3, name: 'Only Murdes In The Building'} ]
 
 app.post('/series', (req, res) => {
-  res.jso
+  res.json(series);
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
