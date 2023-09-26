@@ -43,8 +43,14 @@ app.post('/series', (req, res) => {
   res.json(series);
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+//app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.get('/hello', (req, res) => {
+  res.status(200).json({
+    message: "Hello World!"
+  });
+});
 
+module.exports = { app };
 
 const html = `
 <!DOCTYPE html>
