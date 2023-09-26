@@ -23,9 +23,6 @@ on:
         # Matriz de versões de Node.js a serem usadas
         matrix:
           node-version: [14.x, 16.x, 18.x, 20.x]
-          os: [macos-latest, windows-latest, ubuntu-latest]
-    
-      runs-on: ${{ matrix.os }}
 
       #Passos para executar o job
       steps:
@@ -37,6 +34,7 @@ on:
           uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+        node-version: [14.x, 16.x, 18.x, 20.x]
 
       # Instação das dependências do projeto
         - name: Install dependencies
