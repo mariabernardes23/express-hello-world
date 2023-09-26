@@ -1,0 +1,45 @@
+# Nome do workflow, útil para identificar na iterface do Github Actions
+name: NodeJS CI CD
+
+#Configuração de quando o workflow deve ser acionado
+on:
+  # Aciona o workflow em eventos de push ou pull request, mas apenas na branch main
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Permite a execução manual do workflow
+  workflow_dispatch:
+
+  # Define os jobs que serão executados
+  jobs:
+    # Nome do job, neste caso, 'build'
+    build:
+      # Indica o tipo de máquina onde o job será executado
+      runs-on: ubuntu-latest
+
+      # Estratégica para a matriz de teste
+      strategy:
+        # Matriz de versões de Node.js a serem usadas
+        matirx:
+          node-version: [14.x, 16.x, 18.x, 20.x]
+
+      #Passos para executar o job
+      steps:
+        # Checkout do código-fonte
+        - use: actions/checkout@v4
+
+        # Configuração do Node.js baseado na matriz de versões
+        - name: Use Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          node-version: [14.x, 16.x, 18.x, 20.x]
+
+      # Instação das dependências do projeto
+        - name: Install dependencies
+          run: yarn
+
+      # Execução dos teste
+       - name: Run testes
+         run: yarn test
