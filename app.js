@@ -35,6 +35,11 @@ app.get('/pokemons', (req, res) => {
   res.json(pokemons)
 })
 
+const series = [ { id: 1, name: 'Atypical' },
+                 { id: 2, name: 'Cozinhado o Impossível'},
+                 { id: 3, name: 'Only Murdes In The Building'} ]
+
+                 
 app.post('/series', (req, res) => {
   res.json(series);
 })
