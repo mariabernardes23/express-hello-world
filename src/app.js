@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3001;
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
@@ -43,7 +43,6 @@ app.post('/series', (req, res) => {
   res.json(series);
 })
 
-//app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 app.get('/hello', (req, res) => {
   res.status(200).json({
     message: "Hello World!"
