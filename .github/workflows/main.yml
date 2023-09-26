@@ -26,7 +26,6 @@ on:
 
       #Passos para executar o job
       steps:
-        # Checkout do código-fonte
         - use: actions/checkout@v4
 
         # Configuração do Node.js baseado na matriz de versões
