@@ -44,6 +44,12 @@ app.post('/series', (req, res) => {
   res.json(series);
 })
 
+app.get('/hello', (req, res) => {
+  res.status(200).json({
+    message: "Hello World!"
+  });
+});
+
 //app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 module.exports = { app };
 

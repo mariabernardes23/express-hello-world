@@ -8,12 +8,17 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "node app.js"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.3"
   },
   "engines": {
     "node": ">=14"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
   }
 }
