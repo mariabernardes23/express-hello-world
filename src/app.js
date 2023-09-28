@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-//const port = process.env.PORT || 3001;
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
@@ -10,15 +9,15 @@ app.get("/", (req, res) => res.type('html').send(html));
 app.get('/req', (req, res) => {
   console.log("Just got a request!")
   res.send('Yo!')
-})
+});
 
 app.get('/meu-nome', (req, res) => {
   res.send('Meu nome é Maria Eduarda Bernardes Lopes')
-})
+});
 
 app.get('/tico', (req, res) => {
   res.send('Teco');
-})
+});
 
 const pokemons = [ { id: 1, name:'Pikachu' }, 
                    { id: 2, name:'Caterpie' }, 
@@ -29,20 +28,19 @@ const pokemons = [ { id: 1, name:'Pikachu' },
                    { id: 7, name: 'Krabby' }, 
                    { id: 8, name: 'Muk' }, 
                    { id: 9, name: 'Tauros' },
-                   { id: 10, name:'Lapras' }]
+                   { id: 10, name:'Lapras' }];
 
 app.get('/pokemons', (req, res) => {
   res.json(pokemons)
-})
+});
 
 const series = [ { id: 1, name: 'Atypical' },
                  { id: 2, name: 'Cozinhado o Impossível'},
-                 { id: 3, name: 'Only Murdes In The Building'} ]
-
+                 { id: 3, name: 'Only Murdes In The Building'} ];
                  
 app.post('/series', (req, res) => {
   res.json(series);
-})
+});
 
 app.get('/hello', (req, res) => {
   res.status(200).json({
@@ -50,7 +48,6 @@ app.get('/hello', (req, res) => {
   });
 });
 
-//app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 module.exports = { app };
 
 const html = `
