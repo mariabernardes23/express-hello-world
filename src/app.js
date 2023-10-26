@@ -95,7 +95,7 @@ const html = `
   </head>
   <body>
     <section>
-      Hello Express API Deploy EC2
+      Hello Express API Deploy to EC2 instance
     </section>
   </body>
 </html>
