@@ -42,3 +42,24 @@ jobs:
       # Execução dos testes  
       - name: Run testes
         run: yarn test
+
+      - name: Deploy to EC2 instance
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.TARGET }}
+          SOURCE: ""
+
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+              # npm install pm2 -g && pm2 update
+              cd /home/ec2-user/backend/
+              # pm2 start index.js --name=backend 
+              pm2 restart backend
